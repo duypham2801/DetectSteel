@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Counting</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+        margin: 0;
+        padding-top: 20px;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .object-count-button {
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <div>
+        <h1>Counting Steel</h1>
+    <form method="post" enctype="multipart/form-data" action="/">
+        <input type="file" name="image" accept="image/*">
+        <button type="submit" class="btn btn-primary">Count</button>
+    </form>
+    <h1>Số thanh thép: {{ object_count }}</h1>
+    {% if result_image_path %}
+    <img src="{{ url_for('serve_result_image', filename='resized_image.png') }}" alt="Counting Result">
+
+    {% endif %}
+
+    </div>
+</body>
+</html>
